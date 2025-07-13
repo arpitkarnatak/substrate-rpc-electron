@@ -1,9 +1,22 @@
-# Polkadot Token Tracker
+# 📊 Polkadot Token Tracker
+![App Screenshot](./public/App-Screenshot.png)
 
-![Screenshot](./public/App-Screenshot.png)
-This is a token tracker for DOT token (Native tokens) in substrate based chains.
+A native token tracker for **Substrate-based chains**, specifically for tracking the **DOT token** (or other native tokens). This tool lets you monitor the real-time balance of any address by connecting to a specified RPC endpoint.
 
-## Run directly from Node
+---
+
+## 🚀 Features
+
+- Real-time balance tracking for Substrate-based chains (e.g., Polkadot, Kusama)
+- Cross-platform GUI support
+- Run as a native executable or via Docker in a web-based VNC
+- Lightweight and easy to set up
+
+---
+
+# 🧪 Demo
+
+## Run directly from OS
 
 ```sh
 cp .env.example .env 
