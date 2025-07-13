@@ -1,0 +1,20 @@
+{
+  "name": "electron-app-hello-world",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "electron": "^37.2.1"
+  },
+  "dependencies": {
+    "@polkadot/api": "^16.4.1",
+    "dotenv": "^17.2.0"
+  }
+}
