@@ -13,10 +13,11 @@ npm run start
 
 This will run the application as an executable.
 
+
+https://github.com/user-attachments/assets/e4a45576-4ca6-4440-88cd-c63e4dffb02c
+
+
 A demo of the version directly on OS
-<video width="320" height="240" controls>
-  <source src="./public/Executable.mp4" type="video/mp4">
-</video>
 
 ## Run via docker
 
@@ -28,6 +29,5 @@ docker compose up -d
 
 After successfully being built, head over to URL [http://localhost:6080](http://localhost:6080) and click connect. 
 
-<video width="320" height="240" controls>
-  <source src="./public/VNC View.mp4" type="video/mp4">
-</video>
+
+https://github.com/user-attachments/assets/d48b6324-05c9-4839-a21e-da35e7f58bee
