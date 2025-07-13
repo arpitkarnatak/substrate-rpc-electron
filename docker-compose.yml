@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  electron-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "6080:6080"  # noVNC web interface
+    environment:
+      - DISPLAY=:99
+    env_file: .env.example
