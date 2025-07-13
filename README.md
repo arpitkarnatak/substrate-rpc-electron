@@ -14,6 +14,12 @@ A native token tracker for **Substrate-based chains**, specifically for tracking
 
 ---
 
+## Run for Custom Chain 
+
+In `.env.example`, replace the RPC URL with the Websocket URL of your custom substrate based chain, and the address you want to track. (Used `.env.example` in docker-compose to not worry abour creating a `.env` file)
+
+---
+
 # 🧪 Demo
 
 ## Run directly from OS
