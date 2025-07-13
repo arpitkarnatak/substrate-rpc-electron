@@ -3,6 +3,10 @@ const { contextBridge, ipcRenderer } = require('electron');
 // Expose protected methods that allow the renderer process to use
 // the ipcRenderer without exposing the entire object
 contextBridge.exposeInMainWorld('electronAPI', {
+
+  // Get environment variables
+  getEnvVars: () => ipcRenderer.invoke('get-env-vars'),
+  
   // Listeners for data from main process
   onConnectionStatus: (callback) => ipcRenderer.on('connection-status', callback),
   onBalanceUpdate: (callback) => ipcRenderer.on('balance-update', callback),

@@ -1,8 +1,10 @@
 let transferCount = 0;
 let transfers = [];
+let envVars = {};
 
 // DOM elements
 const connectionStatus = document.getElementById('connection-status');
+const accountAddress = document.getElementById("account-address")
 const genesisHash = document.getElementById('genesis-hash');
 const freeBalance = document.getElementById('free-balance');
 const reservedBalance = document.getElementById('reserved-balance');
@@ -14,6 +16,9 @@ const transfersTableBody = document.getElementById('transfers-tbody');
 // Initialize the app
 async function initialize() {
     try {
+        // Get environment variables first
+        envVars = await window.electronAPI.getEnvVars();
+        
         // Get initial connection status
         const status = await window.electronAPI.getConnectionStatus();
         updateConnectionStatus(status);
@@ -24,10 +29,23 @@ async function initialize() {
         // Set up main address link click handler
         setupMainAddressLink();
         
+        // Update the address display with environment variable
+        updateAddressDisplay();
+        
     } catch (error) {
         console.error('Failed to initialize:', error);
         updateConnectionStatus({ connected: false, error: error.message });
     }
+}
+
+function updateAddressDisplay() {
+    const monitorAddress = envVars.MONITOR_ADDRESS;
+    accountAddress.innerHTML = `
+        Address: <a id="main-address-link" class="main-address-link" data-url="https://polkadot.subscan.io/account/${monitorAddress}" title="View account on Polkadot Subscan">${monitorAddress}</a>
+    `;
+    
+    // Re-setup the click handler for the updated link
+    setupMainAddressLink();
 }
 
 function setupMainAddressLink() {
@@ -63,9 +81,10 @@ function updateConnectionStatus(status) {
     
     if (status.connected) {
         indicator.className = 'status-indicator status-connected';
+        const endpoint = status.endpoint || envVars.POLKADOT_RPC_ENDPOINT;
         connectionStatus.innerHTML = `
             <span class="status-indicator status-connected"></span>
-            Connected to Polkadot network
+            Connected to Network (${endpoint})
         `;
         
         if (status.genesisHash) {
